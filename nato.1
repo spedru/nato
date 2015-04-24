@@ -1,0 +1,46 @@
+.TH NATO 1 "23 April 2015" "version 1.0"
+
+.SH NAME
+nato - translate to phonetic letters
+
+.SH SYNOPSIS
+.B nato
+[
+.B -pcC 
+]
+
+.SH DESCRIPTION
+Translate ASCII text from stdin to phonetic spellings to standard output.
+.TP
+.B -p
+do not print a terminating "stop"
+.TP
+.B -c
+capitalize the first letter of symbol
+.TP
+.B -C
+capitalize every symbol
+
+.SH EXAMPLES
+.TP
+echo "hello" | nato -c
+Output "Hotel Echo Lima Lima Oscar Stop"
+.TP
+echo "this is just a" | nato -Cp > file
+Output "TANGO HOTEL ..." without a terminating "STOP" to file
+.TP
+echo "part of the whole" | nato -C >> file
+Append "PAPA ... LIMA ECHO STOP" to file
+
+.SH NOTES
+This program will never accept files as arguments; this is the job of 
+.B cat
+and your friendly neighboorhood shell's redirections.
+
+.SH FUTURE DIRECTIONS
+Support for more standards
+.PP
+A ``reverse'' mode in which phonetic symbols are translated to letters
+
+.SH SEE ALSO
+\fBcat\fP(1), \fBsh\fP(1P)
